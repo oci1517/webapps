@@ -1,0 +1,10 @@
+{# Import the theme's layout. #}
+{% extends "!layout.html" %}
+
+{# Custom CSS overrides #}
+{% set bootswatch_css_custom = ['_static/oci_manuel.css'] %}
+{% set css_files = css_files + ['_static/css/custom.css'] %}
+
+{%- block extrahead %}
+ <script type="text/javascript" src="/_static/js/code_selection.js"></script>
+{% endblock %}

@@ -1,0 +1,10 @@
+venv
+build
+
+__pycache__
+ociwebapps-doc
+
+oci-files-db.pdf
+
+tjwordlist
+*out-ex*
