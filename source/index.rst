@@ -11,6 +11,13 @@ Module 7 : Applications Web
     :class: danger
 
     Source : ce cours est original et n'emprunte que peu d'informations sur d'autres sites que les sites de référence des technologies utilisées
+    
+    Sites de référence :
+    
+    *   http://flask.pocoo.org/
+    *   http://www.sqlalchemy.org/
+    *   https://github.com/mattupstate/flask-mail
+    *   https://pythonhosted.org/Flask-Bootstrap/
 
 .. only:: html
 
@@ -33,6 +40,8 @@ Module 7 : Applications Web
       Une version de ce cours avec corrigés se trouve sous
       http://oci.donner-online.ch/webapps/corrige/
 
+Table des matières
+==================
 
 ..  toctree::
     :glob:
