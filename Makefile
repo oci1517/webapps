@@ -232,10 +232,10 @@ ssh-key-publish:
 deploy: puthtml putcorrige
 
 puthtml: html
-	rsync -raz build/html/* webpub@donner-online.ch:/home/webpub/html/oci/files-db/ --progress --delete
+	rsync -raz build/html/* webpub@donner-online.ch:/home/webpub/html/oci/webdev/ --progress --delete
 
 putcorrige: corrige
-	rsync -raz build/corrige/* webpub@donner-online.ch:/home/webpub/html/oci/files-db/corrige/ --progress --delete
+	rsync -raz build/corrige/* webpub@donner-online.ch:/home/webpub/html/oci/webdev/corrige/ --progress --delete
 
 youtube-patch:
 	curl https://gist.githubusercontent.com/donnerc/2df4c5daea4c2b92312dec524bb00194/raw/b412c7424e4635f816f9a2f95cdd2095b476b7ec/youtube.py > venv/lib/python3.4/site-packages/sphinxcontrib/youtube/youtube.py
