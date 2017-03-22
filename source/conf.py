@@ -37,7 +37,7 @@ extensions = [
     'sphinxcontrib.youtube',
     'donner.sql.sqltable',   # nécessaire pour charger la fonction setup() et les configvalues ==> sinon sqltable_connection_string n'est pas défini
     'donner.sql',
-    'corr',
+    #'corr',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -53,8 +53,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Persistance et bases de données'
-copyright = u'novembre 2016, Cédric Donner'
+project = u'Internet, Web et applications Web'
+copyright = u'Mars 2017, Cédric Donner'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -200,8 +200,8 @@ htmlhelp_basename = 'tp'
 latex_elements = {
    'papersize':"a4",
    'author': "Cédric Donner",
-   'date': "novembre 2016",
-   'title': "Persistance et bases de données",
+   'date': "Mars 2017",
+   'title': "Internet, Web et applications Web",
    'release' : "",
    'releasename' : "CSUD, Option complémentaire informatique",
    'fontpkg': '\\usepackage{times}',
@@ -212,7 +212,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'oci-files-db.tex', u'Persistance et bases de données',
+  ('index', 'networks-web.tex', u'Internet, Web et applications Web',
    u'Cédric Donner', 'manual'),
 ]
 
@@ -242,7 +242,7 @@ latex_show_urls = True
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'oci-files-db', u'Persistance et bases de données',
+    ('index', 'oci-files-db', u'Internet, Web et applications Web',
      [u'Cédric Donner'], 1)
 
 ]

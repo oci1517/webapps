@@ -27,18 +27,17 @@ Module 7 : Applications Web
       *  :download:`files/oci-webapps.pdf`
 
 
-   .. admonition:: Bloc-notes OneNote pour le déroulement et les devoirs
+   .. admonition:: Déroulement du cours et devoirs
       :class: tip
 
-      Les déroulement de ce chapitre ainsi que les devoirs sont notés dans ce
-      `bloc-notes OneNote <>`_
-      (accessible en lecture seule)
+      Les déroulement de ce chapitre ainsi que les devoirs sont notés dans le document Dropbox Paper suivant : https://paper.dropbox.com/doc/Applications-Web-et-rseaux-droulement-KeJCobgIf2S9QxGX1CRZE
 
    .. admonition:: Cours avec corrigés
       :class: info
 
       Une version de ce cours avec corrigés se trouve sous
-      http://oci.donner-online.ch/webapps/corrige/
+      http://oci.donner-online.ch/wevdev/corrige/
+
 
 Table des matières
 ==================
@@ -47,6 +46,11 @@ Table des matières
     :glob:
     :maxdepth: 1
 
-    
-    intro
-    fundamentals
+    c9
+    tp/index
+    generate/index
+    html/index
+    regexp/index
+    parse/index
+    dom_manip/index
+

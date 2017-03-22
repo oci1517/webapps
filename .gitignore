@@ -1,10 +1,12 @@
 venv
 build
 
+.vscode
+
 __pycache__
 ociwebapps-doc
 
-oci-files-db.pdf
+*.pdf
 
 tjwordlist
 *out-ex*

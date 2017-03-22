@@ -1,0 +1,166 @@
+###############################
+Développement Flask dans Cloud9
+###############################
+
+
+Cours en vidéo
+==============
+
+Vous allez apprendre à développer des applications Web en Python à l'aide du
+micro-framework Flask (http://flask.pocoo.org/). 
+
+
+Création du workspace Cloud9
+============================
+
+Pour pouvoir développer des applications Flask dans Cloud9 (https://c9.io), il
+vous faut créer un workspace de type ``Python``.
+
+Il faut ensuite exécuter quelques commandes initiales dans votre workspace avant
+de commencer. Ces commandes remplacent celles présentées dans la vidéo https://drive.google.com/open?id=0B82G645iSlaFekhmNmhBNTBxcWs
+
+Suppression des fichiers inutiles
+---------------------------------
+
+Dans un terminal (Alt-T), supprimez tous les fichiers présents dans le workspace
+à l'aide de
+
+::
+
+    rm -rf *
+
+Clonage du dépôt contenant les exemples
+---------------------------------------
+
+Clônez le dépôt contenant les exemples à l'aide de 
+
+::
+
+    git clone https://github.com/oci1517/oreilly-intro-to-flask-video flask-course
+    cd flask-course
+
+Installation d'un environnement virtuel
+---------------------------------------
+
+Un **environnement virtuel** contient toutes les dépendances d'un projet Python
+tout en les séparant des paquets installés de manière globale sur le système. On
+pourrait dire qu'un environnement virtuel est aux paquets python ce que l'espace
+de noms local est aux variables au sein d'une fonction. 
+
+Un environnement virtuel Python permet donc d'installer des paquets tels que
+``flask`` ou ``sqlalchemy`` sans interférer avec les paquets installés sur le
+système. Cela permet également de pouvoir installer plusieurs versions
+différentes des paquets sur une même machine sans qu'ils ne se marchent sur les
+pieds.
+
+..  code-block:: bash
+
+    # création de l'environnement virtuel
+    virtualenv -p python3 venv
+
+Activation de l'environnement virtuel
+-------------------------------------
+
+À ce stade, votre workspace devrait avoir la structure de dossiers suivante :
+
+..  code-block:: bash
+
+    donnerc:~/workspace $ tree . -L 2
+    .
+    └── flask-course
+        ├── 1a
+        ├── 1b
+        ├── 2a
+        ├── 2b
+        ├── 2c
+        ├── 2d
+        ├── 2e
+        ├── 2f
+        ├── 2g
+        ├── 2h
+        ├── 3a
+        ├── 3b
+        ├── 3c
+        ├── 3d
+        ├── 4a
+        ├── 4b
+        ├── 4c
+        ├── 5a
+        ├── 6a
+        ├── 6b
+        ├── 7a
+        ├── 8a
+        ├── 8b
+        ├── 8c
+        ├── 9a
+        ├── 9b
+        ├── 9c
+        ├── LICENSE
+        ├── README.md
+        └── requirements.txt
+        └── venv
+
+    29 directories, 3 files
+
+
+..  attention:: Dossier ``venv``
+
+    Remarquez la création du dossier ``venv`` qui correspond à votre
+    environnement virtuel dont voici le contenu
+
+    ..  code-block:: bash
+    
+        # se rendre dans le dossier flask-course si ce n'est pas déjà fait
+        $ cd flask-course
+
+        # afficher le contenu du dossier ``venv`` sous forme d'arbre
+        $ tree venv -L 2
+        venv
+        ├── bin
+        │   ├── activate
+        │   ├── activate.csh
+        │   ├── activate.fish
+        │   ├── activate_this.py
+        │   ├── easy_install
+        │   ├── easy_install-3.4
+        │   ├── pip
+        │   ├── pip3
+        │   ├── pip3.4
+        │   ├── python -> python3
+        │   ├── python3
+        │   └── python3.4 -> python3
+        ├── include
+        │   └── python3.4m -> /usr/include/python3.4m
+        └── lib
+            └── python3.4
+
+        5 directories, 12 files
+
+    Remarquez en particulier le fichier ``venv/bin/activate``. Il s'agit d'un script permettant d'activer l'environnement virtuel
+
+
+..  tip:: Activation de l'environnement virtuel
+
+    Pour activer l'environnement virtuel, il faut entrer la commande suivante
+    depuis le dossier contenant ``venv``, à savoir ``flask-course`` dans notre
+    cas :
+
+    ..  code-block:: bash
+
+        donnerc:~/workspace/flask-course (master) $ source venv/bin/activate
+        (venv)donnerc:~/workspace/flask-course (master) $
+
+    Remarquez les caractères ``(venv)`` qui se sont rajoutés devant l'invite du
+    terminal. Ils signifient que l'environnement virtuel a bien été installés
+
+
+Installation de Flask
+=====================
+
+Une fois l'environnement virtuel activé, on peut installer les dépendances nécessaires l'exécution de Flask depuis le dossier ``flask-course`` avec 
+
+..  code-block:: bash
+
+    pip install -r requirements.txt
+
+
