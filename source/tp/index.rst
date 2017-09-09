@@ -148,7 +148,7 @@ Pour démarrer le serveur sur Cloud9, il faut exécuter les commandes suivantes 
 
     (venv)USER:~/workspace $ export FLASK_APP=app.py
     (venv)USER:~/workspace $ export FLASK_DEBUG=1
-    (venv)USER:~/workspace $ python app.py --host=$IP --port=$PORT
+    (venv)USER:~/workspace $ flask run --host=$IP --port=$PORT
 
 
 Pour visualiser accéder au serveur depuis n'importe quel poste, il faut visiter
@@ -210,6 +210,10 @@ gabarit (*template* en anglais).
 
 #.  Lire la section http://jinja.pocoo.org/docs/2.9/templates/ sur les templates Jinja et leur utilisation dans Flask.
 
+#.  Renommer votre route ``/items`` créée à l'étape précédente en ``/items-step3``
+
+#.  Créer une route ``/items`` pour cette étape.
+
 #.  Créer le fichier ``templates/items.html`` avec le contenu de départ suivant :
 
     ..  code-block:: jinja2
@@ -228,8 +232,110 @@ gabarit (*template* en anglais).
 
     Une fois que tout fonctionne, créer un commit avec le message ``step 4``
 
-Étape 5 : Générer un tableau (liste de vins)
+Étape 5 : Générer un tableau statique (liste de vins)
 ============================================
+
+Il arrive très souvent qu'une application web doive
+construire dynamiquement un tableau pour y mettre des données provenant d'une
+source de données comme un fichier CSV ou d'un système de base de données
+relationnelle telle que MySQL.
+
+Objectifs
+---------
+
+* Utiliser les balises HTML permettant de construire des tableaux : ``<table>``, ``<td>``, ``<tr>``, ``<th>``
+
+* Utiliser les styles CSS pour personnaliser la mise en forme des éléments HTML
+
+* Manipulation de données figurant dans un fichier CSV
+
+Instructions
+------------
+
+#.  Créer un dossier ``static`` au même niveau que le fichier ``app.py``.
+
+#.  Créer un fichier HTML nommé :file:`wines.html` placé dans le dossier
+    ``static`` et y saisir le code HTML permettant de reproduire la structure du
+    tableau ci-dessous. Ce n'est pas très grave si la mise en forme n'est pas
+    identique car celle-ci ne nous intéresse pas
+    en HTML. Nous mettrons ce tableau en forme par la suite à l'aide d'une feuille
+    de styles CSS.
+
+#.  Le fichier HTML en question est accessible avec la route
+    ``/static/wines.html`` qui est gérée automatiquement par Flask comme en témoigne le "dictionnaire" ``app.url_map``
+
+
+
+.. _fig-rendu-html-produits:
+
+..  figure:: figures/rendu-html-tableau.png
+    :width: 80%
+    :align: center
+    :figclass: align-center
+    :alt: Rendu du code HTML tableau à créer
+
+    Rendu du code HTML tableau à créer
+
+
+.. tip::
+
+    Il peut être sage de commencer par lire le `chapitre sur les tableaux`_ dans le cours de OpenClassrooms.
+
+
+Étape 6 : Génération dynamique du tableau
+=========================================
+
+À partir des données contenues dans la liste ``products`` et dans la liste
+``headers``, générer le tableau affiché ci-dessous. Il faut uniquement coder la
+structure du tableau en HTML. La mise en forme sera effectuée plus tard à
+l'aide de CSS.
+
+Pour réaliser cette étape, il faut créer un template ``wine-table.html`` et une route ``/wines``.
+
+* Données : ::
+
+    headers = ['Identifiant', 'Titre', 'Type de reliure', 'Prix unitaire (CHF)']
+
+    products = [
+        ('100', 'Le guide des vins 2005', 'cartonné', '50'),
+        ('200', 'Dieux du stade', 'cartonné', '100'),
+        ('300', 'Rupture de contrat', 'broché', '10'),
+        ('400', 'Pars vite et reviens tard', 'broché', '12'),
+        ('500', 'Panique au collège', 'broché', '7'),
+        ('600', 'Marketing management', 'spirales', '120'),
+        ('700', "L'art de la guerre", 'cartonné', '12'),
+        ('800', 'Excel pour le business et la finance', 'spirales', '75'),
+        ('900', '10 ans de leçon de séduction', 'cartonné', '60'),
+        ('1000', 'Autant en emporte le vent', 'cuir', '150')
+    ]
+
+* Rendu du tableau
+
+.. _fig-rendu-table-produits:
+
+..  figure:: figures/tableau-produits.png
+    :width: 80%
+    :align: center
+    :figclass: align-center
+    :alt: Rendu du code HTML tableau à créer
+
+    Rendu du tableau HTML à générer dynamiquement
+
+
+
+Étape 7 : Création d'une base de données SQLite
+================================================
+
+Les applications Web servent fondamentalement à générer du code HTML qui intègre
+des données provenant d'une base de données et non d'une bête liste définie
+directement dans le code. Vous allez créer une base de données basique pour gérer votre liste de commissions.
+
+#.  Créer un fichier ``products``
+
+
+
+
+
 
 
 
@@ -338,3 +444,7 @@ gabarit (*template* en anglais).
     =====================
 
     Les corrigés sont disponibles dans GitHub sous https://github.com/oci1315/webdev/blob/master/corrige/generation_html/generate_lists.py. La solution utilise la technique de template dont le moteur est développé dans le fichier ``template.py`` se trouvant dans le même dossier.
+
+
+
+.. _chapitre sur les tableaux: http://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3/les-tableaux-1
